@@ -1,0 +1,154 @@
+#!/bin/bash
+
+# Resilience Academy GeoNode customisation script
+#
+# Usually this file does not need to be executed manually.
+# 
+# Execute update.sh that will pull latest changes from git
+# and execute this script afterwards.
+#
+# If you modify files list please keep the custom css file
+# first or file verification check might not give planned
+# results. New files should be added at the bottom of the
+# lists.
+#
+# This file is supposed to be more readable and simple
+# than efficient and smart. Please keep it that way.
+#
+# softdev@utu.fi
+
+# Directory to store the backups
+BACKUPS='backups'
+
+# Temporary direction for backup creation
+TMP='tmp'
+
+# File names inside container
+CONTAINER_FILES=(
+  'resilience-acedemy.css'					#  0 (does not exist inside container on first run)
+  'base.html'							#  1
+  'index.html'							#  2
+  '_resourcebase_snippet.html'                          	#  3
+  '_search_content.html'		 		    	#  4
+  'layer_list.html'   						#  5
+  '_search_user_content.html'					#  6
+  '_general_filters.html'					#  7
+  'cart.html'							#  8
+  '_text_filter.html'						#  9
+  '_type_filters.html'						# 10
+  'admin.py'							# 11
+  'forms.py'							# 12 !
+  'forms.py'							# 13 !
+  )
+
+# File paths inside container
+CONTAINER_PATHS=(
+  '/usr/src/app/geonode/static/geonode/css/'			#  0
+  '/usr/src/app/geonode/templates/'				#  1
+  '/usr/src/app/geonode/templates/'				#  2
+  '/usr/src/app/geonode/base/templates/base/'         	  	#  3
+  '/usr/src/app/geonode/templates/search/'          	        #  4
+  '/usr/src/app/geonode/layers/templates/layers/'		#  5
+  '/usr/src/app/geonode/templates/search/'			#  6
+  '/usr/src/app/geonode/templates/search/'	   	        #  7
+  '/usr/src/app/geonode/static/geonode/js/templates/'		#  8
+  '/usr/src/app/geonode/templates/search/'			#  9
+  '/usr/src/app/geonode/templates/search/'			# 10
+  '/usr/src/app/geonode/people/'				# 11
+  '/usr/local/lib/python2.7/site-packages/django/contrib/auth/'	# 12
+  '/usr/src/app/geonode/people/'				# 13
+  )
+  
+# File names outside container (here)
+# This is needed because there are files with same name on different path
+LOCAL_FILES=(
+  'resilience-acedemy.css'					#  0
+  'base.html'							#  1
+  'index.html'							#  2
+  '_resourcebase_snippet.html'          	  	     	#  3
+  '_search_content.html'					#  4
+  'layer_list.html'   						#  5
+  '_search_user_content.html'					#  6
+  '_general_filters.html'					#  7
+  'cart.html'							#  8
+  '_text_filter.html'						#  9
+  '_type_filters.html'						# 10
+  'admin.py'							# 11
+  'django-forms.py'						# 12
+  'geonode-forms.py'						# 13
+  )
+
+# Get django container id
+CONTAINER=$(docker ps -aqf "name=django4geonode")
+
+# Exit if django container is not found
+if [ -z "$CONTAINER" ]; then
+  echo "No django container found. Halting script exection."
+  exit 1
+fi
+
+# Create backups directory if it does not exist
+if [ ! -d "$BACKUPS" ]; then
+  mkdir "$BACKUPS"
+fi
+
+# Remove temp directory if it exists already
+if [ -d "$TMP" ]; then
+  echo "Temp directory $TMP already exists. Removing it before creating a new one."
+  rm -rf "$TMP"
+fi
+
+# Create the temp directory
+mkdir "$TMP"
+
+# Copy all container files to local temp and ensure that file exists (exit if not)
+for ((i = 0; i < ${#CONTAINER_FILES[@]};++i)); do
+  
+  # Copy file to temp directory
+  docker cp $CONTAINER:${CONTAINER_PATHS[$i]}${CONTAINER_FILES[$i]} $TMP/${LOCAL_FILES[$i]}
+  
+  # Check every file but the first (custom CSS) and exit if it does not exist
+  if [ ! -s "$TMP/${LOCAL_FILES[$i]}" ]; then
+    if (($i > 0)); then
+      echo "Copied file $i: $CONTAINER:${CONTAINER_PATHS[$i]}${CONTAINER_FILES[$i]} -> $TMP/${LOCAL_FILES[$i]} is empty or does not exist! Halting script exection."
+      exit 1
+    else
+      echo "Custom CSS file: $TMP/${LOCAL_FILES[$i]} not found on container - continue running script"
+    fi
+  else
+    echo "Successfully copied file $i: $CONTAINER:${CONTAINER_PATHS[$i]}${CONTAINER_FILES[$i]} -> $TMP/${LOCAL_FILES[$i]}"
+  fi
+  
+done
+
+# Create a zip file from backups
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+zip -rq "$BACKUPS/ra-originals-$TIMESTAMP.zip" "$TMP"
+
+# Check that the zip file is found
+if [ ! -s "$BACKUPS/ra-originals-$TIMESTAMP.zip" ]; then
+  echo "Created backup $BACKUPS/ra-originals-$TIMESTAMP.zip is missing! Halting script exection.."
+  exit 1
+fi
+
+# Check that every customisation file exists locally and is not empty
+for ((i = 0; i < ${#CONTAINER_FILES[@]};++i)); do
+  if [ ! -s "${LOCAL_FILES[$i]}" ]; then
+    echo "Required customisation file ${LOCAL_FILES[$i]} is empty or does not exist! Halting script exection."
+    exit 1
+  fi
+done
+
+# Update container files
+for ((i = 0; i < ${#CONTAINER_FILES[@]};++i)); do
+
+  # Copy file to container
+  docker cp ${LOCAL_FILES[$i]} $CONTAINER:${CONTAINER_PATHS[$i]}${CONTAINER_FILES[$i]}
+
+done
+
+# Remove temp directory
+rm -rf "$TMP"
+
+# Tell user that customisation is up to date
+echo "Customisation update ready."

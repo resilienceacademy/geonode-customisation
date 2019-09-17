@@ -1,0 +1,34 @@
+/*!
+ * Resilience Academy
+ * Custom CSS rules
+ * Copyright 2019
+ * https://resilienceacademy.ac.tz
+ */
+ 
+section.custom-partners {
+  padding-top: 2em;
+}
+
+footer.custom-footer {
+    background: white;
+    border-top: 1px solid black;
+    color: black;
+}
+
+footer img.footer-img {
+    height: 50px;
+}
+
+div.item-details p.abstract {
+    height: 88px;
+    overflow: hidden;
+}
+
+div.item-details h4 {
+    height: 47px;
+    overflow: hidden;
+}
+
+div.custom-search {
+    padding-top: 10px;
+}

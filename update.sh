@@ -3,7 +3,7 @@
 # TODO: help
 
 # Update files
-git update
+git pull
 
 # Process updated files
 ./process_files.sh

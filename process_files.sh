@@ -25,7 +25,7 @@ TMP='tmp'
 
 # File names inside container
 CONTAINER_FILES=(
-  'resilience-acedemy.css'					#  0 (does not exist inside container on first run)
+  'resilience-academy.css'					#  0 (does not exist inside container on first run)
   'base.html'							#  1
   'index.html'							#  2
   '_resourcebase_snippet.html'                          	#  3

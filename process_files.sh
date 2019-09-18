@@ -150,5 +150,8 @@ done
 # Remove temp directory
 rm -rf "$TMP"
 
+# Restart django container to show customisation
+docker restart "$CONTAINER"
+
 # Tell user that customisation is up to date
 echo "Customisation update ready."

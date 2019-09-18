@@ -127,8 +127,8 @@ for ((i = 0; i < ${#CONTAINER_FILES[@]};++i)); do
     else
       echo "Custom CSS file: $TMP/${LOCAL_FILES[$i]} not found on container - continue running script"
     fi
-  else
-    echo "Successfully copied file $i: $CONTAINER:${CONTAINER_PATHS[$i]}${CONTAINER_FILES[$i]} -> $TMP/${LOCAL_FILES[$i]}"
+  #else
+  #  echo "Successfully copied file $i: $CONTAINER:${CONTAINER_PATHS[$i]}${CONTAINER_FILES[$i]} -> $TMP/${LOCAL_FILES[$i]}"
   fi
   
 done

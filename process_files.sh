@@ -175,6 +175,7 @@ done
 rm -rf "$TMP"
 
 # Restart django container to show customisation
+echo "Restarting django container, this will take some seconds"
 docker restart "$CONTAINER"
 
 # Tell user that customisation is up to date

@@ -23,6 +23,12 @@ BACKUPS='backups'
 # Temporary direction for backup creation
 TMP='tmp'
 
+# Image files path
+IMAGES='images'
+
+# Image path inside container
+CONTAINER_IMAGE_PATH='/usr/src/app/geonode/static/geonode/img'
+
 # File names inside container
 CONTAINER_FILES=(
   'resilience-academy.css'					#  0 (does not exist inside container on first run)
@@ -76,6 +82,12 @@ LOCAL_FILES=(
   'admin.py'							# 11
   'django-forms.py'						# 12
   'geonode-forms.py'						# 13
+  )
+
+# Image files, these are not backed up but existence is checked
+IMAGE_FILES=(
+  'RA-Shield_Horizantal.png'
+  'zanzibar.jpg'
   )
 
 # Get django container id
@@ -139,12 +151,24 @@ for ((i = 0; i < ${#CONTAINER_FILES[@]};++i)); do
   fi
 done
 
+# Check that every image file exists locally and is not empty
+for ((i = 0; i < ${#IMAGE_FILES[@]};++i)); do
+  if [ ! -s "$IMAGES/${IMAGE_FILES[$i]}" ]; then
+    echo "Required image file ${IMAGE_FILES[$i]} is empty or does not exist! Halting script exection."
+    exit 1
+  fi
+done
+
 # Update container files
 for ((i = 0; i < ${#CONTAINER_FILES[@]};++i)); do
-
   # Copy file to container
   docker cp ${LOCAL_FILES[$i]} $CONTAINER:${CONTAINER_PATHS[$i]}${CONTAINER_FILES[$i]}
+done
 
+# Update container images
+for ((i = 0; i < ${#IMAGE_FILES[@]};++i)); do
+  # Copy image to container
+  docker cp $IMAGES/${IMAGE_FILES[$i]} $CONTAINER:${CONTAINER_IMAGE_PATH}/${IMAGE_FILES[$i]}
 done
 
 # Remove temp directory

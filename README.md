@@ -1,6 +1,8 @@
 # geonode-customisation
 Customised files and everything required to get them on place.
 
+Script will work only if django containers name is: django4geonode.
+
 Script in this repository is not ready to use yet!
 
 ## Usage
@@ -13,9 +15,7 @@ Script in this repository is not ready to use yet!
 
     `chmod u+x *.sh`
 
-3) Change django container name on script process_files.sh if it is not django4geonode
-
-4) Execute update.sh
+3) Execute update.sh
 
     `./update.sh`
 

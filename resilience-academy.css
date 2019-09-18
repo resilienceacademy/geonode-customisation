@@ -45,7 +45,7 @@ body {
 }
 
 body div.container div.navbar-header a.navbar-brand {
-    background-image: url(/uploaded/img/2019/08/RA-Shield_Horizantal.png);
+    background-image: url(../img/RA-Shield_Horizantal.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -61,7 +61,7 @@ body div.container div.navbar-header a.navbar-brand {
 }
 .home .jumbotron:after {
     content: "";
-    background-image: url(/uploaded/img/2019/06/Zanzibar_Mapping_Initiative_3min_updated_27Feb2017.00_01_34_05.Still019.jpg);
+    background-image: url(../img/zanzibar.jpg);
     background-repeat: no-repeat;
     background-position: center;
     /*background-size: cover;*/

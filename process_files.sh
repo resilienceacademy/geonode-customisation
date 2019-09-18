@@ -62,7 +62,7 @@ CONTAINER_PATHS=(
 # File names outside container (here)
 # This is needed because there are files with same name on different path
 LOCAL_FILES=(
-  'resilience-acedemy.css'					#  0
+  'resilience-academy.css'					#  0
   'base.html'							#  1
   'index.html'							#  2
   '_resourcebase_snippet.html'          	  	     	#  3

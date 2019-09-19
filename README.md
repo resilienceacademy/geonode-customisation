@@ -3,7 +3,7 @@ Customised files and everything required to get them on place.
 
 Script will work only if django containers name is: django4geonode.
 
-Script in this repository is not ready to use yet!
+Note: Current customisation is done on June 2019 version of GeoNode 2.10. Some files are already changed if this is used on new installation.
 
 ## Usage
 

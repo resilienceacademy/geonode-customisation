@@ -1,15 +1,17 @@
 # geonode-customisation
 Customised files and everything required to get them on place.
 
-Script will work only if django containers name is: django4geonode.
+Script will work only if django containers name is: django4resilienceacademy.git.
 
-Note: Current customisation is done on June 2019 version of GeoNode 2.10. Some files are already changed if this is used on new installation.
+Note: Current customisation is done on June 2019 version of GeoNode 2.10.1. Some files are already changed if this is used on new installation.
 
 ## Usage
 
+<aside class="notice">To be used with https://github.com/geosolutions-it/resilienceacademy.git</aside>
+
 1) Clone repository on server hosting GeoNode:
 
-    `git clone git@github.com:resilienceacademy/geonode-customisation.git`
+    `git clone git@github.com:geosolutions-it/geonode-customisation.git`
 
 2) Make .sh files executable
 

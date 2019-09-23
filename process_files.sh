@@ -174,6 +174,9 @@ done
 # Remove temp directory
 rm -rf "$TMP"
 
+# Run 'collectstatic' management command
+docker exec -it $CONTAINER bash -c "/usr/src/resilienceacademy/manage.sh collectstatic --noinput"
+
 # Restart django container to show customisation
 echo "Restarting django container, this will take some seconds"
 docker restart "$CONTAINER"

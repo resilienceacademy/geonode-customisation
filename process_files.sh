@@ -27,7 +27,7 @@ TMP='tmp'
 IMAGES='images'
 
 # Image path inside container
-CONTAINER_IMAGE_PATH='/usr/src/app/geonode/static/geonode/img'
+CONTAINER_IMAGE_PATH='/usr/src/geonode/geonode/static/geonode/img'
 
 # File names inside container
 CONTAINER_FILES=(
@@ -49,20 +49,20 @@ CONTAINER_FILES=(
 
 # File paths inside container
 CONTAINER_PATHS=(
-  '/usr/src/app/geonode/static/geonode/css/'			#  0
-  '/usr/src/app/geonode/templates/'				#  1
-  '/usr/src/app/geonode/templates/'				#  2
-  '/usr/src/app/geonode/base/templates/base/'         	  	#  3
-  '/usr/src/app/geonode/templates/search/'          	        #  4
-  '/usr/src/app/geonode/layers/templates/layers/'		#  5
-  '/usr/src/app/geonode/templates/search/'			#  6
-  '/usr/src/app/geonode/templates/search/'	   	        #  7
-  '/usr/src/app/geonode/static/geonode/js/templates/'		#  8
-  '/usr/src/app/geonode/templates/search/'			#  9
-  '/usr/src/app/geonode/templates/search/'			# 10
-  '/usr/src/app/geonode/people/'				# 11
+  '/usr/src/geonode/geonode/static/geonode/css/'			#  0
+  '/usr/src/geonode/geonode/templates/'				#  1
+  '/usr/src/geonode/geonode/templates/'				#  2
+  '/usr/src/geonode/geonode/base/templates/base/'         	  	#  3
+  '/usr/src/geonode/geonode/templates/search/'          	        #  4
+  '/usr/src/geonode/geonode/layers/templates/layers/'		#  5
+  '/usr/src/geonode/geonode/templates/search/'			#  6
+  '/usr/src/geonode/geonode/templates/search/'	   	        #  7
+  '/usr/src/geonode/geonode/static/geonode/js/templates/'		#  8
+  '/usr/src/geonode/geonode/templates/search/'			#  9
+  '/usr/src/geonode/geonode/templates/search/'			# 10
+  '/usr/src/geonode/geonode/people/'				# 11
   '/usr/local/lib/python2.7/site-packages/django/contrib/auth/'	# 12
-  '/usr/src/app/geonode/people/'				# 13
+  '/usr/src/geonode/geonode/people/'				# 13
   )
   
 # File names outside container (here)
@@ -91,7 +91,7 @@ IMAGE_FILES=(
   )
 
 # Get django container id
-CONTAINER=$(docker ps -aqf "name=django4geonode")
+CONTAINER=$(docker ps -aqf "name=django4resilienceacademy")
 
 # Exit if django container is not found
 if [ -z "$CONTAINER" ]; then

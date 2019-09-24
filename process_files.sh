@@ -86,8 +86,21 @@ LOCAL_FILES=(
 
 # Image files, these are not backed up but existence is checked
 IMAGE_FILES=(
+  'ARU-logo.jpg'
+  'dar.jpg'
+  'Government-of-Tanzania-Logo.png'
   'RA-Shield_Horizantal.png'
+  'SUA_logo.png'
+  'SUZA_Logo.png'
+  'The-World-Bank-logo.png'
+  'TURP-Logo.png'
+  'UDSM_logo.png'
+  'UKaid-Logo.png'
+  'University-of-Turku-logo.png'
+  'UTU.png'
+  'Web_RA-logo-2.png'
   'zanzibar.jpg'
+  'Zanzibar-Mapping-Initiative-3min-updated-27Feb2017.00_01_34_05.Still019.jpg'
   )
 
 # Get django container id

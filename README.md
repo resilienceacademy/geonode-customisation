@@ -7,11 +7,11 @@ Note: Current customisation is done on June 2019 version of GeoNode 2.10.1. Some
 
 ## Usage
 
-<aside class="notice">To be used with https://github.com/geosolutions-it/resilienceacademy.git</aside>
+<aside class="notice">To be used with https://github.com/resilienceacademy/resilience-academy-geonode.git</aside>
 
 1) Clone repository on server hosting GeoNode:
 
-    `git clone git@github.com:geosolutions-it/geonode-customisation.git`
+    `git clone git@github.com:resilienceacademy/geonode-customisation.git`
 
 2) Make .sh files executable
 

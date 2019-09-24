@@ -27,7 +27,7 @@ TMP='tmp'
 IMAGES='images'
 
 # Image path inside container
-CONTAINER_IMAGE_PATH='/usr/src/app/geonode/static/geonode/img'
+CONTAINER_IMAGE_PATH='/usr/src/geonode/geonode/static/geonode/img'
 
 # File names inside container
 CONTAINER_FILES=(
@@ -49,20 +49,20 @@ CONTAINER_FILES=(
 
 # File paths inside container
 CONTAINER_PATHS=(
-  '/usr/src/app/geonode/static/geonode/css/'			#  0
-  '/usr/src/app/geonode/templates/'				#  1
-  '/usr/src/app/geonode/templates/'				#  2
-  '/usr/src/app/geonode/base/templates/base/'         	  	#  3
-  '/usr/src/app/geonode/templates/search/'          	        #  4
-  '/usr/src/app/geonode/layers/templates/layers/'		#  5
-  '/usr/src/app/geonode/templates/search/'			#  6
-  '/usr/src/app/geonode/templates/search/'	   	        #  7
-  '/usr/src/app/geonode/static/geonode/js/templates/'		#  8
-  '/usr/src/app/geonode/templates/search/'			#  9
-  '/usr/src/app/geonode/templates/search/'			# 10
-  '/usr/src/app/geonode/people/'				# 11
+  '/usr/src/geonode/geonode/static/geonode/css/'			#  0
+  '/usr/src/geonode/geonode/templates/'				#  1
+  '/usr/src/geonode/geonode/templates/'				#  2
+  '/usr/src/geonode/geonode/base/templates/base/'         	  	#  3
+  '/usr/src/geonode/geonode/templates/search/'          	        #  4
+  '/usr/src/geonode/geonode/layers/templates/layers/'		#  5
+  '/usr/src/geonode/geonode/templates/search/'			#  6
+  '/usr/src/geonode/geonode/templates/search/'	   	        #  7
+  '/usr/src/geonode/geonode/static/geonode/js/templates/'		#  8
+  '/usr/src/geonode/geonode/templates/search/'			#  9
+  '/usr/src/geonode/geonode/templates/search/'			# 10
+  '/usr/src/geonode/geonode/people/'				# 11
   '/usr/local/lib/python2.7/site-packages/django/contrib/auth/'	# 12
-  '/usr/src/app/geonode/people/'				# 13
+  '/usr/src/geonode/geonode/people/'				# 13
   )
   
 # File names outside container (here)
@@ -86,12 +86,25 @@ LOCAL_FILES=(
 
 # Image files, these are not backed up but existence is checked
 IMAGE_FILES=(
+  'ARU-logo.jpg'
+  'dar.jpg'
+  'Government-of-Tanzania-Logo.png'
   'RA-Shield_Horizantal.png'
+  'SUA_logo.png'
+  'SUZA_Logo.png'
+  'The-World-Bank-logo.png'
+  'TURP-Logo.png'
+  'UDSM_logo.png'
+  'UKaid-Logo.png'
+  'University-of-Turku-logo.png'
+  'UTU.png'
+  'Web_RA-logo-2.png'
   'zanzibar.jpg'
+  'Zanzibar-Mapping-Initiative-3min-updated-27Feb2017.00_01_34_05.Still019.jpg'
   )
 
 # Get django container id
-CONTAINER=$(docker ps -aqf "name=django4geonode")
+CONTAINER=$(docker ps -aqf "name=django4resilienceacademy")
 
 # Exit if django container is not found
 if [ -z "$CONTAINER" ]; then
@@ -173,6 +186,9 @@ done
 
 # Remove temp directory
 rm -rf "$TMP"
+
+# Run 'collectstatic' management command
+docker exec -it $CONTAINER bash -c "/usr/src/resilienceacademy/manage.sh collectstatic --noinput"
 
 # Restart django container to show customisation
 echo "Restarting django container, this will take some seconds"

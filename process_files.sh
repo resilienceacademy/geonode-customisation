@@ -100,7 +100,6 @@ IMAGE_FILES=(
   'UTU.png'
   'Web_RA-logo-2.png'
   'zanzibar.jpg'
-  'Zanzibar-Mapping-Initiative-3min-updated-27Feb2017.00_01_34_05.Still019.jpg'
   )
 
 # Get django container id

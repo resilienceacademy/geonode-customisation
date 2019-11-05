@@ -31,20 +31,20 @@ CONTAINER_IMAGE_PATH='/usr/src/geonode/geonode/static/geonode/img'
 
 # File names inside container
 CONTAINER_FILES=(
-  'resilience-academy.css'				#  0 (does not exist inside container on first run)
-  'base.html'							#  1
-  'index.html'							#  2
-  '_resourcebase_snippet.html'          #  3
-  '_search_content.html'		 		#  4
-  'layer_list.html'   					#  5
-  '_search_user_content.html'			#  6
-  '_general_filters.html'				#  7
-  'cart.html'							#  8
-  '_text_filter.html'					#  9
-  '_type_filters.html'					# 10
-  'admin.py'							# 11
-  'forms.py'							# 12 !
-  'forms.py'							# 13 !
+  'resilience-academy.css'      #  0 (does not exist inside container on first run)
+  'base.html'                   #  1
+  'index.html'                  #  2
+  '_resourcebase_snippet.html'  #  3
+  '_search_content.html'        #  4
+  'layer_list.html'             #  5
+  '_search_user_content.html'   #  6
+  '_general_filters.html'       #  7
+  'cart.html'                   #  8
+  '_text_filter.html'           #  9
+  '_type_filters.html'          # 10
+  'admin.py'                    # 11
+  'forms.py'                    # 12 !
+  'forms.py'                    # 13 !
   )
 
 # File paths inside container

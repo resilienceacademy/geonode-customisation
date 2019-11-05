@@ -1,0 +1,146 @@
+{% extends "geonode_base.html" %}
+
+{% load i18n %}
+{% block title %} {% trans "About GeoNode" %} — {{ block.super }} {% endblock %}
+
+{% block body_outer %}
+<div class="page-header">
+    <h2>{% trans "Download" %}</h2>
+</div>
+<div id="download-container">
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://resilienceacademy.ac.tz/geonode-site/css/style_leaflet.css" />
+    <link rel="stylesheet" href="https://resilienceacademy.ac.tz/geonode-site/css/Control.FullScreen.css" />
+    <link rel="stylesheet" href="https://resilienceacademy.ac.tz/geonode-site/css/leaflet.label.css" />
+
+    <!-- Leaflet Secure CDN resources -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+
+    <!-- control FullScreen -->
+    <script src="https://resilienceacademy.ac.tz/geonode-site/js/Control.FullScreen.js"></script>
+    <script src="https://resilienceacademy.ac.tz/geonode-site/data/zanzibar_jp2.js"></script>
+
+    <div>
+        <!-- Section: interactive map -->
+        <div id="map" style="height:750px;width: 100%;margin:0"></div>
+        <script>
+
+            googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { maxZoom: 20, subdomains: ['mt0', 'mt1', 'mt2', 'mt3'] });
+
+            var map = L.map('map', {
+                layers: [googleSat],
+                maxZoom: 20,
+                fullscreenControl: false,
+                fullscreenControlOptions: { // optional
+                    title: "Show me the fullscreen !"
+                }, scrollWheelZoom: false
+            }).setView([-5.750, 39.455], 9);
+
+            //base layer
+
+            //console.log(map.getZoom());
+
+            googleSat.addTo(map);
+
+            var osm;
+            osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors,'
+            });
+
+
+            var oam;
+            oam = L.tileLayer('https://tiles.openaerialmap.org/user/5ac4842b26964b0010033104/{z}/{x}/{y}.png', {
+                minZoom: 13, maxZoom: 22, maxNativeZoom: 18, transparent: true, format: 'image/png', attribution: 'OpenAerialMap'
+            });
+            oam.addTo(map);
+
+
+            var zmi_tms;
+            zmi_tms = L.tileLayer('http://www.zmi-geonode.org/geoserver/gwc/service/tms/1.0.0/zmi-v1@3857@png/{z}/{x}/{y}.png', { maxZoom: 12, format: 'image/png', transparent: true, tms: true });
+            zmi_tms.addTo(map);
+
+
+            //L.control.attribution('Zanzibar Mapping Initiative');
+            L.control.scale().addTo(map);
+
+            //feature layer style
+            var defaultStyle =
+            {
+                color: "#EBD400",
+                weight: 2,
+                opacity: 0.5,
+                fillOpacity: 0,
+                fillColor: "#2262CC"
+            };
+
+            //style application
+            var onEachFeature = function (feature, layer) {
+                // loading the default style.
+
+                layer.setStyle(defaultStyle);
+            };
+
+            //geojson atlas
+            var featureLayer = L.geoJson(zanzibar_zones, {
+                onEachFeature: onEachFeature
+            });
+            //map.addLayer(featureLayer);
+
+            //featureLayer.addTo(map);
+            var popup = L.popup();
+            featureLayer.eachLayer(function (layer) {
+
+
+                // call BindPopUp with custom HTML and data query`
+
+                var page_file = layer.feature.properties.version;
+                var page_file_lc = page_file.toLowerCase();
+                var link = 'http://www.zmi-geonode.org/layers/geonode%3A' + page_file_lc;
+                //console.log(page_file_lc);
+            });
+
+            //div title, text and logos
+            var title = new L.Control();
+            title.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+                this.update();
+                return this._div;
+            };
+            title.update = function () {
+                this._div.innerHTML = '<div style="width:300px;font-family:"Verdana, Helvetica, sans-serif"> \
+            <center><h3>Download data</h3><p style="font-size:10px"">To download the specify imageries follow the links below:</p> \
+            <div id="link"> \
+            <p><a id="link1" href="https://seafile.utu.fi/d/b5d6e225a3374537a1e1/" onclick="window.open(this.href); return false;">1. Drone Images for Dar es Salaam Bus Rapid Transit</a></p> \
+            <p><a id="link2" href="https://seafile.utu.fi/d/aed8263b629c450c9674/" onclick="window.open(this.href); return false;">2. Dar es Salaam Digital Terrain Model (by COWI)</a></p> \
+            <p><a id="link3" href="https://seafile.utu.fi/d/2dd14f0810094a1a97aa/" onclick="window.open(this.href); return false;">3. Drone images for lower Msimbazi Valley</a></p> \
+            <p><a id="link4" href="https://seafile.utu.fi/d/6bdfbebc3999488b878d/" onclick="window.open(this.href); return false;">4. Satellite images of Dar es Salaam (Planet, 2017)</a></p> \
+            <p><a id="link5" href="https://seafile.utu.fi/d/3f5381600e444552847e/" onclick="window.open(this.href); return false;">5. Satellite images of Dar es Salaam (Planet, 2018)</a></p> \
+            <p><a id="link6" href="https://seafile.utu.fi/d/665ffbe1b78347f3b626/" onclick="window.open(this.href); return false;">6. UAV Digital Elevation Model 0.50m Msimbazi river</a></p> \
+            <p><a id="link7" href="https://seafile.utu.fi/d/9429d8eb66394502b50d/" onclick="window.open(this.href); return false;">7. UAV LiDAR Digital Elevation Model Msimbazi river</a></p> \
+            <p><a id="link8" href="https://seafile.utu.fi/d/e970aa2e748b4b50be2b/" onclick="window.open(this.href); return false;">8. Dar es Salaam Orthophoto 2016</a></p> \
+            </div></div>';
+            };
+            title.addTo(map);
+            var baseLayers = {
+                "Satellite": googleSat,
+                "OpenStreetMap": osm
+            };
+            var overlays = {
+                // 	"grid":featureLayer,
+                // 	"oam-tms": oam,
+                //   "zmi_tms": zmi_tms
+            };
+            L.control.layers(baseLayers, overlays, { position: 'topleft' }).addTo(map);
+
+        </script>
+    </div>
+
+</div>
+{% endblock %}

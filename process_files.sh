@@ -45,6 +45,7 @@ CONTAINER_FILES=(
   'admin.py'                    # 11
   'forms.py'                    # 12 !
   'forms.py'                    # 13 !
+  'about.html'                  # 14
   )
 
 # File paths inside container
@@ -63,6 +64,7 @@ CONTAINER_PATHS=(
   '/usr/src/geonode/geonode/people/'                            # 11
   '/usr/local/lib/python2.7/site-packages/django/contrib/auth/' # 12
   '/usr/src/geonode/geonode/people/'                            # 13
+  '/usr/src/geonode/geonode/templates/'                         # 14
   )
   
 # File names outside container (here)
@@ -82,6 +84,7 @@ LOCAL_FILES=(
   'admin.py'                    # 11
   'django-forms.py'             # 12
   'geonode-forms.py'            # 13
+  'about.html'                  # 14
   )
 
 # Image files, these are not backed up but existence is checked
@@ -190,9 +193,11 @@ rm -rf "$TMP"
 # Run 'collectstatic' management command
 docker exec -it $CONTAINER bash -c "/usr/src/resilienceacademy/manage.sh collectstatic --noinput"
 
-# Restart django container to show customisation
-echo "Restarting django container, this will take some seconds"
-docker restart "$CONTAINER"
+# Restart django container to show customisation (test without)
+# echo "Restarting django container, this will take some seconds"
+# docker restart "$CONTAINER"
 
 # Tell user that customisation is up to date
 echo "Customisation update ready."
+
+echo "Restart the django container if updates are not showing up"

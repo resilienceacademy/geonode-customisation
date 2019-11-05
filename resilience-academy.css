@@ -76,6 +76,15 @@ body div.container div.navbar-header a.navbar-brand {
     z-index: 0;
 }
 
+/* Showcase is the container below jumbotron */
+body.home div#wrap section#showcase {
+    background-color: #007CC3;
+}
+
+body.home div#wrap section#showcase a {
+    color: white;
+}
+
 .footer-copyright {
     background-color: #0075b7;
 }

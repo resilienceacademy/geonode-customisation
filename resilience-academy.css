@@ -76,6 +76,15 @@ body div.container div.navbar-header a.navbar-brand {
     z-index: 0;
 }
 
+.home .jumbotron h1 {
+    text-shadow: 4px 3px 3px #000000;
+}
+
+.home .jumbotron p {
+    text-shadow: 2px 4px 4px #000000;
+}
+
+
 /* Showcase is the container below jumbotron */
 body.home div#wrap section#showcase {
     background-color: #007CC3;

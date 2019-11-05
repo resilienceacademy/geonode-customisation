@@ -49,39 +49,39 @@ CONTAINER_FILES=(
 
 # File paths inside container
 CONTAINER_PATHS=(
-  '/usr/src/geonode/geonode/static/geonode/css/'			    #  0
-  '/usr/src/geonode/geonode/templates/'				            #  1
-  '/usr/src/geonode/geonode/templates/'				            #  2
-  '/usr/src/geonode/geonode/base/templates/base/'         	  	#  3
-  '/usr/src/geonode/geonode/templates/search/'          	    #  4
-  '/usr/src/geonode/geonode/layers/templates/layers/'		    #  5
-  '/usr/src/geonode/geonode/templates/search/'			        #  6
-  '/usr/src/geonode/geonode/templates/search/'	   	            #  7
-  '/usr/src/geonode/geonode/static/geonode/js/templates/'		#  8
-  '/usr/src/geonode/geonode/templates/search/'			        #  9
-  '/usr/src/geonode/geonode/templates/search/'			        # 10
-  '/usr/src/geonode/geonode/people/'				            # 11
-  '/usr/local/lib/python2.7/site-packages/django/contrib/auth/'	# 12
-  '/usr/src/geonode/geonode/people/'				            # 13
+  '/usr/src/geonode/geonode/static/geonode/css/'                #  0
+  '/usr/src/geonode/geonode/templates/'                         #  1
+  '/usr/src/geonode/geonode/templates/'                         #  2
+  '/usr/src/geonode/geonode/base/templates/base/'               #  3
+  '/usr/src/geonode/geonode/templates/search/'                  #  4
+  '/usr/src/geonode/geonode/layers/templates/layers/'           #  5
+  '/usr/src/geonode/geonode/templates/search/'                  #  6
+  '/usr/src/geonode/geonode/templates/search/'                  #  7
+  '/usr/src/geonode/geonode/static/geonode/js/templates/'       #  8
+  '/usr/src/geonode/geonode/templates/search/'                  #  9
+  '/usr/src/geonode/geonode/templates/search/'                  # 10
+  '/usr/src/geonode/geonode/people/'                            # 11
+  '/usr/local/lib/python2.7/site-packages/django/contrib/auth/' # 12
+  '/usr/src/geonode/geonode/people/'                            # 13
   )
   
 # File names outside container (here)
 # This is needed because there are files with same name on different path
 LOCAL_FILES=(
-  'resilience-academy.css'     #  0
-  'base.html'                  #  1
-  'index.html'				   #  2
-  '_resourcebase_snippet.html' #  3
-  '_search_content.html'	   #  4
-  'layer_list.html'   		   #  5
-  '_search_user_content.html'  #  6
-  '_general_filters.html'	   #  7
-  'cart.html'				   #  8
-  '_text_filter.html'		   #  9
-  '_type_filters.html'		   # 10
-  'admin.py'				   # 11
-  'django-forms.py'			   # 12
-  'geonode-forms.py'		   # 13
+  'resilience-academy.css'      #  0
+  'base.html'                   #  1
+  'index.html'                  #  2
+  '_resourcebase_snippet.html'  #  3
+  '_search_content.html'        #  4
+  'layer_list.html'             #  5
+  '_search_user_content.html'   #  6
+  '_general_filters.html'       #  7
+  'cart.html'                   #  8
+  '_text_filter.html'           #  9
+  '_type_filters.html'          # 10
+  'admin.py'                    # 11
+  'django-forms.py'             # 12
+  'geonode-forms.py'            # 13
   )
 
 # Image files, these are not backed up but existence is checked
@@ -99,7 +99,7 @@ IMAGE_FILES=(
   'University-of-Turku-logo.png'
   'UTU.png'
   'Web_RA-logo-2.png'
-  'zanzibar.jpg'        # old jumbotron - will be removed
+  'zanzibar.jpg'    # old jumbotron - will be removed
   'jumbotron.jpg'
   )
 

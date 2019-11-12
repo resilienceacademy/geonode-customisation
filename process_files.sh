@@ -66,8 +66,9 @@ CONTAINER_PATHS=(
   '/usr/local/lib/python2.7/site-packages/django/contrib/auth/' # 12
   '/usr/src/geonode/geonode/people/'                            # 13
   '/usr/src/geonode/geonode/templates/'                         # 14
-  '/usr/src/geonode/base/templates/base/'                       # 15
+  '/usr/src/geonode/geonode/base/templates/base/'                       # 15
   )
+
   
 # File names outside container (here)
 # This is needed because there are files with same name on different path

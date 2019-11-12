@@ -46,8 +46,9 @@ CONTAINER_FILES=(
   'forms.py'                    # 12 !
   'forms.py'                    # 13 !
   'about.html'                  # 14
+  '_resourcebase_info_panel.html' #15
   )
-
+geonode/base/templates/base/_resourcebase_info_panel.html
 # File paths inside container
 CONTAINER_PATHS=(
   '/usr/src/geonode/geonode/static/geonode/css/'                #  0
@@ -65,6 +66,7 @@ CONTAINER_PATHS=(
   '/usr/local/lib/python2.7/site-packages/django/contrib/auth/' # 12
   '/usr/src/geonode/geonode/people/'                            # 13
   '/usr/src/geonode/geonode/templates/'                         # 14
+  '/usr/src/geonode/base/templates/base/'                       # 15
   )
   
 # File names outside container (here)
@@ -85,6 +87,7 @@ LOCAL_FILES=(
   'django-forms.py'             # 12
   'geonode-forms.py'            # 13
   'about.html'                  # 14
+  '_resourcebase_info_panel.html' #15
   )
 
 # Image files, these are not backed up but existence is checked

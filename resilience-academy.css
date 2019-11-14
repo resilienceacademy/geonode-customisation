@@ -109,7 +109,8 @@ body.home div#wrap section#showcase a {
 }
 
 .home .big-search {
-    background: #333333;
+    /* background: #333333; */
+    background: #eeeeee;
     color: white;
     padding-bottom: 0;
     padding-top: 0; 

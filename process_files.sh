@@ -48,7 +48,8 @@ CONTAINER_FILES=(
   'about.html'                  # 14
   '_resourcebase_info_panel.html' #15
   '_resourcebase_contact_snippet.html' #16
-  'layer_detail.html' #17
+  'layer_detail.html'           #17
+  'base.css'                    #18
    )
    
 # File paths inside container
@@ -70,9 +71,9 @@ CONTAINER_PATHS=(
   '/usr/src/geonode/geonode/templates/'                         # 14
   '/usr/src/geonode/geonode/base/templates/base/'               # 15
   '/usr/src/geonode/geonode/base/templates/base/'               # 16
-  '/usr/src/geonode/geonode/layers/templates/layers/' #17
+  '/usr/src/geonode/geonode/layers/templates/layers/'           # 17
+  '/usr/src/geonode/geonode/static/geonode/css/'                # 18
   )
-
   
 # File names outside container (here)
 # This is needed because there are files with same name on different path
@@ -94,7 +95,8 @@ LOCAL_FILES=(
   'about.html'                  # 14
   '_resourcebase_info_panel.html' #15
   '_resourcebase_contact_snippet.html' #16
-  'layer_detail.html' #17
+  'layer_detail.html'           #17
+  'base.css'                    #18
   )
 
 # Image files, these are not backed up but existence is checked

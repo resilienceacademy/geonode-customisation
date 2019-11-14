@@ -169,14 +169,34 @@
               {% endif %} -->
             </li>
 
-      <li id="nav_maps"><a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Resources" %}</a>
+      <!-- <li id="nav_maps"><a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Resources" %}</a>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Document" %}<i class="fa fa-angle-down fa-lg"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Training" %}</a></li>
               </ul>
-            </li>
+            </li> -->
       
-	    <li><a href="{% url "profile_browse" %}">{% trans "Community" %}</a></li>
+            <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Community" %}<i class="fa fa-angle-down fa-lg"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url "profile_browse" %}">{% trans "People" %}</a></li>
+                  <li><a href="{% url "group_list" %}">{% trans "Groups" %}</a></li>
+                  <li><a href="{% url "group_category_list" %}">{% trans "Group Categories" %}</a></li>
+                  {% if perms.announcements.can_manage %}
+                  <li><a href="{% url "announcements_list" %}">{% trans "Announcements" %}</a></li>
+                  {% endif %}
+                  {% if user.is_authenticated %}
+                  <li role="separator" class="divider"></li>
+                  <li><a href="{% url "geonode.invitations:geonode-send-invite" %}">{% trans "Invite Users" %}</a></li>
+                  {% endif %}
+                  {% if user.is_superuser %}
+                  <li><a href="{{SITEURL}}admin/people/profile/add/">{% trans "Add User" %}</a></li>
+                  <li><a href="{% url "group_create" %}">{% trans "Create Group" %}</a></li>
+                  {% endif %}
+                </ul>
+            </li>
+
+	    <!-- <li><a href="{% url "profile_browse" %}">{% trans "Community" %}</a></li> -->
             <!-- <li><a href="{% url "help" %}">{% trans "Help" %}</a></li> -->
 
             <!--<li>

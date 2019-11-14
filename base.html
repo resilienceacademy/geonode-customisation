@@ -169,10 +169,10 @@
               {% endif %} -->
             </li>
 
-      <li id="nav_maps"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Resources" %}<i class="fa fa-angle-down fa-lg"></i></a>
+      <li id="nav_maps"><a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Resources" %}</a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Document" %}<i class="fa fa-angle-down fa-lg"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Document" %}</a></li>
-                <li><a href="{% url "#" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Training" %}</a></li>
+                <li><a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Training" %}</a></li>
               </ul>
             </li>
       

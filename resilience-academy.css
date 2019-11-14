@@ -11,6 +11,11 @@ section.custom-partners {
   padding-top: 2em;
 }
 
+section.custom-raactivitites {
+    padding-top: 2em;
+    background-color: #2c689c;
+  }
+
 footer.custom-footer {
     background: white;
     border-top: 1px solid black;

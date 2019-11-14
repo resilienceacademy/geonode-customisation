@@ -107,3 +107,16 @@ body.home div#wrap section#showcase a {
 .footer-copyright {
     background-color: #0075b7;
 }
+
+.home .big-search {
+    background: #333333;
+    color: white;
+    /* padding-bottom: 3em;
+    padding-top: 1em; */
+  }
+
+  .home #showcase {
+    background: #eeeeee;
+    /*padding: 2em 0;*/
+    text-align: center;
+  }

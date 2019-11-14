@@ -75,6 +75,7 @@ CONTAINER_PATHS=(
   '/usr/src/geonode/geonode/static/geonode/css/'                # 18
   )
   
+  
 # File names outside container (here)
 # This is needed because there are files with same name on different path
 LOCAL_FILES=(

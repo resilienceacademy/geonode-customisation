@@ -16,9 +16,9 @@
   {% else %}
   <div class="jumbotron">
   	<div class="container">
-        <!-- <h1>{{custom_theme.jumbotron_welcome_title|default:_("Climate Risk Database")}} </h1>
+        <h1>{{custom_theme.jumbotron_welcome_title|default:_("Climate Risk Database")}} </h1>
   		<p></p>
-		<p>{{custom_theme.jumbotron_welcome_content|default:_('"The catalyst for resilient urban development in Tanzania"')}}</p> -->
+		<p>{{custom_theme.jumbotron_welcome_content|default:_('"The catalyst for resilient urban development in Tanzania"')}}</p> 
 		{% if not custom_theme.jumbotron_cta_hide %}
   		<p><a class="btn btn-default btn-lg" target="_blank" href="{{custom_theme.jumbotron_cta_link|default:_("http://docs.geonode.org/en/master/tutorials/users/index.html")}}" role="button">{{custom_theme.jumbotron_cta_text|default:_("Welcome &raquo;")}}</a></p>
 		{% endif %}

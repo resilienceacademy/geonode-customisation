@@ -121,3 +121,19 @@ body.home div#wrap section#showcase a {
     padding: 0 0;
     text-align: center;
   }
+
+  .home .custom-ramessage
+  {
+    background: #eeeeee;
+    color: white;
+    padding-bottom: 2em;
+    padding-top: 3em; 
+  }
+
+  .home .custom-blogs
+  {
+    background: #CCCCCC;
+    color: white;
+    padding-bottom: 2em;
+    padding-top: 3em; 
+  }

@@ -74,7 +74,7 @@
               </div>
               <div class="col-md-4">
                 <p><a href="{% url "profile_browse" %}"><i class="fa fa-user fa-4x"></i></a></p>
-                <h4><a href="{% url "profile_browse" %}">{{ facets.user|default:_("No") }} {% blocktrans count counter=facets.user %}Community{% plural %}Users{% endblocktrans %}</a></h4>
+                <h4><a href="{% url "profile_browse" %}">{{ facets.user|default:_("No") }} {% blocktrans count counter=facets.user %}Community{% plural %}Community{% endblocktrans %}</a></h4>
               </div>
              </div>
 	     
@@ -136,6 +136,10 @@ research, education, and disaster-risk management practices.
           </div>
         </div>
       </section>
+
+      <div class="row">
+        <hr>
+      </div>
 
       <!-- <section class="custom-blogs" id="ra-blogs">
         <div class="container text-center">

@@ -95,7 +95,6 @@ LOCAL_FILES=(
   '_resourcebase_info_panel.html' #15
   '_resourcebase_contact_snippet.html' #16
   'layer_detail.html'           #17
-  
   )
 
 # Image files, these are not backed up but existence is checked

@@ -113,13 +113,13 @@ body.home div#wrap section#showcase a {
     background:transparent;
     color: white;
     padding-bottom: 0;
-    padding-top: 0; 
-    margin-bottom: 200px;
+    padding-top: 100px; 
+    margin-bottom: 20px;
   }
 
   .home #showcase {
     background: #eeeeee;
-    margin-top: 300px;
+    margin-top: 290px;
     padding: 0 0; 
     text-align: center;
   }

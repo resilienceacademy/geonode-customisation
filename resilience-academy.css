@@ -118,9 +118,10 @@ body.home div#wrap section#showcase a {
 
   .home #showcase {
     background: #eeeeee;
+    font-size: 20px;
     margin-top: 3em;
     padding-top: 2em;
-    padding: 0 0;
+    /* padding: 20px 0; */
     text-align: center;
   }
 

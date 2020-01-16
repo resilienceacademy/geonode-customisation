@@ -117,6 +117,7 @@ IMAGE_FILES=(
   'ra.png'
   'assessment.png'
   'ramani_huria.png'
+  'favicon.ico'
   )
 
 # Get django container id

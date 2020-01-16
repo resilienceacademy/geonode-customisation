@@ -113,7 +113,7 @@ IMAGE_FILES=(
   'UTU.png'
   'Web_RA-logo-2.png'
   'zanzibar.jpg'    # old jumbotron - will be removed
-  'jumbotron.jpg'
+  'jumbotron-2020-01-16-1723x800.jpg'
   'ra.png'
   'assessment.png'
   'ramani_huria.png'

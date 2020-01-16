@@ -71,7 +71,8 @@ body div.container div.navbar-header a.navbar-brand {
 }
 .home .jumbotron:after {
     content: "";
-    background-image: url(../img/jumbotron.jpg);
+    /* old jumbotron: background-image: url(../img/jumbotron.jpg); */
+    background-image: url(../img/jumbotron-2020-01-16-1723x800.jpg);
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;

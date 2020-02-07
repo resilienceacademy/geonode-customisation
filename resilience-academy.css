@@ -22,8 +22,10 @@ section.custom-raactivitites {
   }
 
 footer.custom-footer {
-    background: white;
-    border-top: 1px solid black;
+    /*background: white;*/
+   background: #007ab8;
+   margin-top:20px;
+    /*border-top: 1px solid black;*/
     color: black;
 }
 
@@ -135,12 +137,76 @@ body.home div#wrap section#showcase a {
 
   .home .custom-blogs
   {
+   overflow: hidden;
     background: #CCCCCC;
     color: white;
     padding-bottom: 2em;
     padding-top: 3em; 
   }
 
+  #custom-blogs-div
+  {
+    float: left;
+    background-color: grey;
+    padding-bottom: 5%;
+    background: #FFFFFF;
+  }
+
   .text-ramessage {
     color: black;
+  }
+
+  .footer .footer-text
+  {
+    /*color: #007ab8;*/
+    color:white;
+    margin-top:5px;
+    font-size:12px;
+  }
+
+  .footer a
+  {
+    /*color: #007ab8;*/
+    color: white;
+    margin-top:5px;
+    font-size:16px;
+  }
+
+  .footer a:hover
+  {
+    /*color: #007ab8;*/
+    color:white;
+  }
+
+  .institutions {
+   background: white;
+   margin-top:20px;
+   /*margin-left:500px;*/
+    /*border-top: 1px solid black;*/
+    color: black;
+}
+
+.institutions .bank {
+padding-left:50px;
+}
+
+hr{
+    border:         none;
+    border-left:    2px solid;
+    height:         10vh;
+    width:          1px;
+}
+
+.text-info-right
+{
+text-align:left;
+}
+.text-info-left
+{
+text-align:right;
+}
+
+.img-blog
+  {
+    padding-top:5%;
   }

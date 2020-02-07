@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load static from staticfiles %}
 {% load base_tags %}
+{% load resilience_tags %}
 
 {% block title %} {% trans "Welcome!" %} - {{ block.super }} {% endblock %}
 
@@ -126,20 +127,44 @@
 
       <section class="custom-ramessage" id="ra-message">
         <div class="container text-center">
-          <div class="row">
+
+             <div class="row">
               <div class="col-md-12">
                 <h3 class="text-ramessage">
                   Resilience Academy’s Climate Risk Database (CRD) is a digital geospatial data repository that supports
-research, education, and disaster-risk management practices. 
+research, education, and disaster-risk management practices.
                 </h3>
               </div>
           </div>
         </div>
       </section>
 
-      <div class="row">
+<section class="custom-blogs" id="ra-blog">
+    <div class="container text-center">
+            <div class="row">
+                <h2 class="text-ramessage">OUR BLOGS</h2>
+                <h4 class="text-ramessage">Show me more <a href="https://resilienceacademy.ac.tz/blogs/" target="_blank"> Blogs</a></h4>
+
+                {% load_wp_posts as wp_posts %}
+                {% for post in wp_posts.wp_posts %}
+                <div class="col-md-3" id="custom-blogs-div">
+                    <img src="{{post.image_url}}" class="img-blog" width="100%" height="150px">
+                    <h4 class="text-ramessage">{{ post.title.rendered|slice:":40"}}...</h4>
+                    <!--{% autoescape off %}
+                    <span class="text-ramessage">{{post.excerpt.rendered}}</span>
+                    {% endautoescape %}-->
+                    <p class="text-ramessage">{{post.date_gmt|date:"M d, Y"}}</p>
+                    <a href="{{post.link}}" target="_blank">Read More</a>
+                </div>
+                <div class="col-md-1"></div>
+                {%endfor%}
+            </div>
+    </div>
+</section>
+
+      <!--<div class="row">
         <hr>
-      </div>
+      </div>-->
 
       <!-- <section class="custom-blogs" id="ra-blogs">
         <div class="container text-center">
@@ -150,18 +175,21 @@ research, education, and disaster-risk management practices.
         </div>
       </section> -->
 
-      <section class="custom-partners" id="partners">
+     <!--<section class="custom-partners" id="partners">
         <div class="container text-center">
           <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <h4 class="text-info">Initiative by</h4>
 	      </div>
-	      <div class="col-md-6">
+              <div class="col-md-2">
+                  <hr>
+              </div>
+	      <div class="col-md-5">
                 <h4 class="text-info">Supported by</h4>
               </div>
           </div>
         </div>
-      </section>
+      </section>-->
     
 
 

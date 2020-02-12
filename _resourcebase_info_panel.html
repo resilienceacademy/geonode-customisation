@@ -98,18 +98,22 @@
     {% if resource.owner %}
     <dt>{% trans "Owner" %}</dt>
     <!-- <dd><a itemprop="author" href="{{ resource.owner.get_absolute_url }}">Resilience Academy</a></dd> -->
-    <dd><a itemprop="author" href="#">Resilience Academy</a></dd>
+    <!--<dd><a itemprop="author" href="#">{{resource.owner}}</a></dd>-->
+    {% if resource.group %}
+    <!--<dt>{% trans "Group" %}</dt>-->
+    <dd><a href="/groups/group/{{ resource.group.name }}/activity/">{{ group }}</a> </dd>
+    {% endif %}
     {% endif %}
 
     {% if resource.poc.user %}
     <dt>{% trans "Point of Contact" %}</dt>
-    <dd><a href="{{ resource.poc.user.get_absolute_url }}">{{ resource.poc.user.username }}</a></dd>
+    <dd><a href="{{ resource.poc.user.get_absolute_url }}">{{ resource.owner.username}}</a></dd>
     {% endif %}
 
-    {% if resource.group %}
+    <!--{% if resource.group %}
     <dt>{% trans "Group" %}</dt>
     <dd><a href="/groups/group/{{ resource.group.name }}/activity/">{{ group }}</a> </dd>
-    {% endif %}
+    {% endif %}-->
 
   </dl>
 

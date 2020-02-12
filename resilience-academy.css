@@ -190,7 +190,7 @@ body.home div#wrap section#showcase a {
 padding-left:50px;
 }
 
-hr{
+.custom-hr{
     border:         none;
     border-left:    2px solid;
     height:         10vh;
@@ -210,3 +210,17 @@ text-align:right;
   {
     padding-top:5%;
   }
+
+  .group-hr
+  {    
+    border:1px solid;
+    border-color: #007ab8;
+  }
+
+  .group-img{
+  width:120px;
+  height:120px;
+  }
+
+
+

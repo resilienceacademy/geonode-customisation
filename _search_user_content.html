@@ -1,8 +1,7 @@
 {% load i18n %}
 <div class="row" ng-controller="CartList">
-  <div class="col-md-3">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-4">
         {% load base_tags %}
         <nav class="filter">
             <h4><a href="" class="toggle toggle-nav">
@@ -21,12 +20,30 @@
                 </li>
             </ul>
         </nav>
+	</div>
+	<div class="col-md-4">
         {% if facet_type == 'groups' %}
 
-        <nav class="filter">
-          <h4><a href="#" class="toggle toggle-nav"><i class="fa fa-chevron-right"></i>{% trans "Categories" %}</a></h4>
-          <ul class="nav closed" id="groupcategories">
+	<nav class="filter">
+          <h4><a href="#" class="toggle toggle-nav"><i class="fa fa-chevron-right"></i>{% trans "Group Categories" %}</a></h4>
+          <ul class="nav closed" id="group-categories">
             {% verbatim %}
+              <li ng-repeat="category in groupCategories" ng-if="category.member_count > 0">
+                <a data-value="{{ category.slug }}" data-filter="group_profile__categories__slug__in" ng-click="multiple_choice_listener($event)" class="{{category.active}}">
+                    <div class="fa-stack fa-1g">
+                        <i class="fa fa-square-o fa-stack-2x"></i><i class="fa {{category.fa_class}} fa-stack-1x"></i>
+                    </div>{{ category.name | limitTo: 25 }}{{ category.name.length > 25 ? '...' : ''}}
+                  <span class="badge pull-right">{{ category.member_count }}</span>
+                </a>
+              </li>
+            {% endverbatim %}
+          </ul>
+        </nav>
+
+        <!-- <nav class="filter">
+          <h4><a href="#" class="toggle toggle-nav"><i class="fa fa-chevron-right"></i>{% trans "Categories" %}</a></h4>
+          <ul class="nav closed" id="group-categories">
+          {% verbatim %}
               <li ng-repeat="category in categories" ng-if="category.member_count > 0">
                 <a data-value="{{ category.slug }}" data-filter="categories__slug"
                  ng-click="multiple_choice_listener($event)" class="{{category.active}}"><div class="fa-stack fa-1g"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa {{category.fa_class}} fa-stack-1x"></i></div>{{ category.name | limitTo: 25 }}{{ category.name.length > 25 ? '...' : ''}}
@@ -35,17 +52,19 @@
               </li>
             {% endverbatim %}
           </ul>
-        </nav>
+        </nav>-->
 
         {% endif %}
       </div>
-    </div>
-
-  </div>
-  <div class="col-md-9">
-    <div class="col-md-2">
-      <span>Total: </span>
-      <span ng-bind="total_counts"></span>
+</div>
+<div class="row">
+<hr class="group-hr">
+</div>
+  <div class="row">
+  <div class="col-md-12">
+    <div class="col-md-4">
+     <h4> <span>Total: </span>
+     <span ng-bind="total_counts"></span></h3>
     </div>
     {% include "search/_sort_filters.html" %}
     <div class="col-md-12 grid-spacer">
@@ -57,6 +76,7 @@
             {% include "people/_profile_list_item.html" %}
         {% endif %}
     </div>
+</div>
+</div>
     {% include 'search/_pagination.html' %}
-  </div>
 </div>

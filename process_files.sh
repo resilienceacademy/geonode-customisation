@@ -49,6 +49,7 @@ CONTAINER_FILES=(
   '_resourcebase_info_panel.html' #15
   '_resourcebase_contact_snippet.html' #16
   'layer_detail.html'           #17
+  '_group_profile_list_item.html' #18
    )
    
 # File paths inside container
@@ -69,8 +70,9 @@ CONTAINER_PATHS=(
   '/usr/src/geonode/geonode/people/'                            # 13
   '/usr/src/geonode/geonode/templates/'                         # 14
   '/usr/src/geonode/geonode/base/templates/base/'               # 15
-  '/usr/src/geonode/geonode/base/templates/base/'                 # 16
+  '/usr/src/geonode/geonode/base/templates/base/'               # 16
   '/usr/src/geonode/geonode/layers/templates/layers/'           # 17
+  '/usr/src/geonode/geonode/groups/templates/groups/'           # 18
   )
   
   
@@ -95,6 +97,7 @@ LOCAL_FILES=(
   '_resourcebase_info_panel.html' #15
   '_resourcebase_contact_snippet.html' #16
   'layer_detail.html'           #17
+  '_group_profile_list_item.html' #18
   )
 
 # Image files, these are not backed up but existence is checked
@@ -104,7 +107,7 @@ IMAGE_FILES=(
   'Government-of-Tanzania-Logo.png'
   'RA-Shield_Horizantal.png'
   'SUA_logo.png'
-  'SUZA_Logo.png'
+  'logo_suza_suza.png'
   'The-World-Bank-logo.png'
   'TURP-Logo.png'
   'UDSM_logo.png'

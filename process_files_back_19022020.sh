@@ -45,6 +45,7 @@ CONTAINER_FILES=(
   'admin.py'                    # 11
   'forms.py'                    # 12 !
   'forms.py'                    # 13 !
+  'about.html'                  # 14
   '_resourcebase_info_panel.html' #15
   '_resourcebase_contact_snippet.html' #16
   'layer_detail.html'           #17
@@ -67,6 +68,7 @@ CONTAINER_PATHS=(
   '/usr/src/geonode/geonode/people/'                            # 11
   '/usr/local/lib/python2.7/site-packages/django/contrib/auth/' # 12
   '/usr/src/geonode/geonode/people/'                            # 13
+  '/usr/src/geonode/geonode/templates/'                         # 14
   '/usr/src/geonode/geonode/base/templates/base/'               # 15
   '/usr/src/geonode/geonode/base/templates/base/'               # 16
   '/usr/src/geonode/geonode/layers/templates/layers/'           # 17
@@ -91,6 +93,7 @@ LOCAL_FILES=(
   'admin.py'                    # 11
   'django-forms.py'             # 12
   'geonode-forms.py'            # 13
+  'about.html'                  # 14
   '_resourcebase_info_panel.html' #15
   '_resourcebase_contact_snippet.html' #16
   'layer_detail.html'           #17

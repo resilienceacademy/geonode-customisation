@@ -38,7 +38,7 @@ from django.core.exceptions import PermissionDenied
 from .models import Profile
 from .forms import ProfileCreationForm, ProfileChangeForm
 
-from autocomplete_light.forms import modelform_factory
+from django.forms.models import modelform_factory
 
 csrf_protect_m = method_decorator(csrf_protect)
 sensitive_post_parameters_m = method_decorator(sensitive_post_parameters())

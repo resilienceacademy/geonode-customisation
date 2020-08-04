@@ -65,7 +65,7 @@ CONTAINER_PATHS=(
   '/usr/src/geonode/geonode/templates/search/'                  #  9
   '/usr/src/geonode/geonode/templates/search/'                  # 10
   '/usr/src/geonode/geonode/people/'                            # 11
-  '/usr/local/lib/python2.7/site-packages/django/contrib/auth/' # 12
+  '/usr/local/lib/python3.8/site-packages/django/contrib/auth/' # 12
   '/usr/src/geonode/geonode/people/'                            # 13
   '/usr/src/geonode/geonode/base/templates/base/'               # 15
   '/usr/src/geonode/geonode/base/templates/base/'               # 16
@@ -205,11 +205,12 @@ done
 rm -rf "$TMP"
 
 # Run 'collectstatic' management command
-docker exec -it $CONTAINER bash -c "/usr/src/resilienceacademy/manage.sh collectstatic --noinput"
+docker exec -it $CONTAINER bash -c "/usr/src/resilienceacademy3/manage.sh collectstatic --noinput"
 
 # Restart django container to show customisation (test without)
 # echo "Restarting django container, this will take some seconds"
 # docker restart "$CONTAINER"
+docker exec -it $CONTAINER bash -c "touch /usr/src/resilienceacademy3/resilienceacademy3/wsgi.py"
 
 # Tell user that customisation is up to date
 echo "Customisation update ready."

@@ -1,15 +1,18 @@
 {% verbatim %}
 <article ng-repeat="group in results" ng-cloak class="ng-cloak">
   <div class="col-xs-12 col-sm-12 col-lg-12 group-container">
-    <div class="col-xs-12 group-avatar">
+        <div class="col-xs-12 group-avatar">
       <div class="col-xs-4 group-img">
-        <a ng-if="group.group_profile.logo" href="{{ group.group_profile.detail_url }}" ><img ng-if="group.group_profile.logo" ng-src="{{ group.group_profile.logo }}" alt="{{ group.group_profile.title }}" class="group-logo" /></a>
-      </div>
-      <div class="col-xs-8 group-details">
-        <h5><a href="{{ group.group_profile.detail_url }}"></a></h5>
-        <!-- <a href="mailto:{{ group.group_profile.email }}" ng-if="group.group_profile.email != ''"><i class="fa fa-envelope-o"></i></a> -->
-        <p><small>{{ group.group_profile.description | limitTo: 100 }}{{ group.group_profile.description.length  > 100 ? '...' : ''}}</small></p>
-      </div>
+                <a ng-if="group.group_profile.logo_url != ''" href="{{ group.group_profile.detail_url }}"><img
+                        ng-if="group.group_profile.logo_url != ''" ng-src="{{ group.group_profile.logo_url }}"
+                        alt="{{ group.group_profile.title }}" class="group-logo"/></a>
+            </div>
+            <div class="col-xs-8 group-details">
+                <h5><a href="{{ group.group_profile.detail_url }}"></a></h5>
+                <!-- <a href="mailto:{{ group.group_profile.email }}" ng-if="group.group_profile.email != ''"><i class="fa fa-envelope-o"></i></a> -->
+                <p><small>{{ group.group_profile.description | limitTo: 100 }}{{ group.group_profile.description.length
+                    > 100 ? '...' : ''}}</small></p>
+            </div>
      <!-- <div class="col-xs-12 group-items">
         <ul class="list-inline">
           <li>
@@ -25,6 +28,7 @@
         </a>
       </li>
     </div>-->
-  </div>
+        </div>
+    </div>
 </article>
 {% endverbatim %}

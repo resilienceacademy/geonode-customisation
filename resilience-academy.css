@@ -112,12 +112,12 @@ body.home div#wrap section#showcase a {
 }
 
 .home .big-search {
-    /* background: #333333; */
+   /* background: #333333;*/ 
     background:transparent;
     color: white;
     padding-bottom: 0;
-    padding-top: 340px; 
-    /* margin-bottom: 20px; */
+   padding-top: 340px; 
+   /* margin-bottom: 20px; */
   }
 
   .home #showcase {

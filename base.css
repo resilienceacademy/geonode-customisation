@@ -7043,11 +7043,11 @@ article.tab-pane {
 .home .jumbotron .btn-default:hover {
   background: rgba(0, 0, 0, 0.4);
 }
-.home .big-search {
+/*.home .big-search {
   background: #333333;
-  color: white;
-  /* padding-bottom: 3em;*/
-  /*padding-top: 340px;*/ 
+  color: white;*/
+  /* padding-bottom: 3em;
+  padding-top: 340px; */
 }
 .home .big-search h1,
 .home .big-search p {

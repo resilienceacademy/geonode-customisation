@@ -31,7 +31,7 @@ CONTAINER_IMAGE_PATH='/usr/src/geonode/geonode/static/geonode/img'
 
 # File names inside container
 CONTAINER_FILES=(
-  'resilience-academy.css'      #  0 (does not exist inside container on first run)
+  #'resilience-academy.css'      #  0 (does not exist inside container on first run)
   'base.html'                   #  1
   'index.html'                  #  2
   '_resourcebase_snippet.html'  #  3
@@ -53,7 +53,7 @@ CONTAINER_FILES=(
    
 # File paths inside container
 CONTAINER_PATHS=(
-  '/usr/src/geonode/geonode/static/geonode/css/'                #  0
+  #'/usr/src/geonode/geonode/static/geonode/css/'                #  0
   '/usr/src/geonode/geonode/templates/'                         #  1
   '/usr/src/geonode/geonode/templates/'                         #  2
   '/usr/src/geonode/geonode/base/templates/base/'               #  3
@@ -77,7 +77,7 @@ CONTAINER_PATHS=(
 # File names outside container (here)
 # This is needed because there are files with same name on different path
 LOCAL_FILES=(
-  'resilience-academy.css'      #  0
+  #'resilience-academy.css'      #  0
   'base.html'                   #  1
   'index.html'                  #  2
   '_resourcebase_snippet.html'  #  3
